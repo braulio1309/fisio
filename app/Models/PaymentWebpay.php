@@ -1,0 +1,22 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class PaymentWebpay extends Model
+{
+    protected $table = "payment_webpays";
+    protected $fillable = [
+        'user_id',
+        'ref',
+        'authorization_code',
+        'ammount',
+        'token_transaction',
+    ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+}
